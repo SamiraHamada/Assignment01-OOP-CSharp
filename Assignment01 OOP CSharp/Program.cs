@@ -22,28 +22,7 @@ namespace Assignment01_OOP_CSharp
 
             #endregion
 
-            #region 2nd Question
-            //public struct Shipment {
-            //public string
-            //Description;
-            //public double Weight;
-            //public decimal DeliveryFee;
-            //}
-
-            // a) Identify at least three problems with this design from an encapsulation perspective.
-
-            //Fields are public, so anyone can change them directly
-            //There is no validation for Weight.
-            //There is no validation for DeliveryFee.
-            //Description can be assigned null, empty, or whitespace.
-
-            //b) How can private fields and public properties improve this design?
-
-           // Make the fields private and access them through public properties.
-          //The properties can validate the values before changing the fields.
-
-
-            #endregion
+         
 
     }
     }
