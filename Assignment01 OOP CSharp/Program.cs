@@ -45,8 +45,98 @@ namespace Assignment01_OOP_CSharp
 
             #endregion
 
+            #region 1st Question practical
+            DeliveryAddress address1 = new DeliveryAddress("Cairo", "Tahrir Street", 15);
 
+            DeliveryAddress address2 = address1;
+
+            address2.BuildingNumber = 20;
+            address2.Street = "Makram Ebeid Street";
+
+            Console.WriteLine("Original Address: " + address1.GetFullAddress());
+            Console.WriteLine("Copied Address: " + address2.GetFullAddress());
+
+            #endregion
+
+            #region 6th Question practical
+
+
+
+            DeliveryCenter center = new DeliveryCenter();
+
+            for (int i = 1; i <= 3; i++)
+            {
+                Console.WriteLine($"Enter Shipment {i} Data");
+
+                Console.Write("Tracking Code: ");
+                string trackingCode = Console.ReadLine();
+
+                Console.Write("Description: ");
+                string description = Console.ReadLine();
+
+                Console.Write("Weight: ");
+                double weight = double.Parse(Console.ReadLine());
+
+                Console.Write("Delivery Fee: ");
+                decimal deliveryFee = decimal.Parse(Console.ReadLine());
+
+                Console.Write("City: ");
+                string city = Console.ReadLine();
+
+                Console.Write("Street: ");
+                string street = Console.ReadLine();
+
+                Console.Write("Building Number: ");
+                int buildingNumber = int.Parse(Console.ReadLine());
+
+                DeliveryAddress address = new DeliveryAddress(
+                    city,
+                    street,
+                    buildingNumber
+                );
+
+                Shipment shipment = new Shipment(
+                    trackingCode,
+                    description,
+                    weight,
+                    deliveryFee,
+                    address
+                );
+
+                if (center.AddShipment(shipment))
+                {
+                    Console.WriteLine("Shipment added successfully.");
+                }
+            }
+
+            Console.WriteLine("--- All Shipments ---");
+
+            for (int i = 0; i < 3; i++)
+            {
+                center[i].PrintShipment();
+            }
+
+            Console.Write("Enter a tracking code to search: ");
+            string searchCode = Console.ReadLine();
+
+            Shipment foundShipment = center[searchCode];
+
+            if (foundShipment.TrackingCode != null)
+            {
+                Console.WriteLine(
+                    $"Shipment found: {foundShipment.TrackingCode} - {foundShipment.Description}"
+                );
+            }
+            else
+            {
+                Console.WriteLine("Shipment not found.");
+            }
+
+
+
+            #endregion
 
         }
     }
 }
+
